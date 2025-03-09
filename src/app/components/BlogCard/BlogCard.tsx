@@ -10,7 +10,7 @@ interface BlogCardProps {
 const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
    return (
       <Link
-         href={`/blog/${data.slug}`}
+         href={`/blogs/${data.slug}`}
          className="   mx-auto grid grid-cols-3  bg-white items-center p-2   rounded-xl md:rounded-2xl border-4 justify-center  border-black relative hover:scale-110"
       >
          <div className=" shrink flex flex-col items-center justify-center  ">
@@ -20,6 +20,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
                   alt="data image"
                   width={150}
                   height={150}
+                  priority
                   className=" object-cover"
                />
             </div>
@@ -31,10 +32,10 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
 
          <div className="col-span-2 h-full text-center  gap-1.5 md:gap-3 my-2 ">
             <p className="text-md md:text-2xl font-bold ">{data.title}</p>
-            <p className="text-[11px] md:text-xl line-clamp-4">
+            <p className="text-[12px] md:text-lg line-clamp-4 ">
                {data.description}
             </p>
-            <p>Read more</p>
+            <p className="text-[11px] md:text-xl">Read more</p>
          </div>
 
       </Link>

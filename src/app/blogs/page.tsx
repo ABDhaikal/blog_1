@@ -9,21 +9,21 @@ import {
    PaginationPrevious,
 } from "@/components/ui/pagination";
 
-
-
 import BlogCard from "@/app/components/BlogCard/BlogCard";
 import React, { use, useEffect, useState } from "react";
-import useGetBlogs from "../hooks/useGetBlogs";
+import useGetBlogs from "./hooks/useGetBlogs";
 import { useDebounceValue } from "usehooks-ts";
 import Image from "next/image";
-import FilterButton from "../components/FilterButton";
+import FilterButton from "./components/FilterButton";
+import { useAppSelector } from "@/redux/hooks";
 
 const page = () => {
    const [search, setSearch] = useState<string>("");
    const [debouncedSearch] = useDebounceValue(search, 500);
    const [page, setPage] = useState(1);
    const [display, setDisplay] = useState(10);
-   const [category, setCategory] = useState("all");
+   const globalCategory = useAppSelector((state) => state.globalCategory);
+   const [category, setCategory] = useState(globalCategory.value);
    const { data: blogs } = useGetBlogs({
       search: debouncedSearch,
       page: page,
@@ -38,7 +38,8 @@ const page = () => {
       }
    };
    const handleNextPage = () => {
-      const totalPages = Math.ceil(blogs?.count || 0 / 10);
+      if(blogs?.count === undefined) return
+      const totalPages = Math.ceil(blogs?.count  / display);
       if (page < totalPages) {
          setPage((prevPage) => prevPage + 1);
       }
@@ -49,16 +50,19 @@ const page = () => {
          {/* Blog list header */}
 
          <section>
-            <div className="flex flex-row items-center justify-center  text-xl md:text-4xl">
+            <div className="grid grid-flow-col items-center justify-center  text-xl md:text-4xl ">
+               <FilterButton
+                  nowCategory={category}
+                  changeCategory={setCategory}
+               />
+
                <input
                   type="text"
                   placeholder="Search..."
                   className="h-full border-2 placeholder:text-center bg-white  px-2 md:px-3 mx-2 rounded-sm border-black  md:rounded-4xl"
                   onChange={(e) => setSearch(e.target.value)}
                />
-
                <Image src="/search.svg" alt="search" width={50} height={50} />
-               <FilterButton nowCategory={"all"}  changeCategory={setCategory} />
             </div>
          </section>
 
@@ -71,7 +75,7 @@ const page = () => {
                   </div>
                ))
             ) : (
-               <p className="text-center text-xl text-white">No blogs found.</p>
+               <p className="text-center text-xl text-white">will appear on the future...</p>
             )}
          </section>
 

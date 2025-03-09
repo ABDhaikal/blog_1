@@ -1,8 +1,8 @@
-import React, { FC } from "react";
-import { format } from "date-fns";
-import Link from "next/link";
-import Image from "next/image";
 import { getBlog } from "@/app/api/blogApi/getBlog";
+import { format } from "date-fns";
+import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
 interface BlogHeaderProps {
    slug: string;
 }
@@ -10,9 +10,9 @@ const BlogHeader: FC<BlogHeaderProps> = async ({ slug }) => {
    const blog = await getBlog(slug);
    return (
       <div className="container m-auto item-center justify-center ">
-            <Link href="/blog " className="aspect-square block relative w-[50px] md:w-[75px]  left-[5%] md:left-[10%] hover:hue-rotate-180 ">
+            <Link href="/blogs " className="aspect-square block relative w-[50px] md:w-[75px]  left-[5%] md:left-[10%] hover:hue-rotate-180 ">
                {" "}
-               <Image src="/back.svg" alt="logo" priority={false} placeholder = 'empty' fill />
+               <Image src="/back.svg" alt="logo" priority placeholder = 'empty' fill />
             </Link>
          <h1 className="section-title text-6xl   md:text-8xl  py-2 md:py-6 font-sans ">
             {blog.title}

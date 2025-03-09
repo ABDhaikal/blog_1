@@ -16,6 +16,7 @@ const BlogBody: FC<BlogBodyProps> = async ({ slug }) => {
                <Image
                   src={blog.thumbnail}
                   alt="blog image"
+                  priority
                   width={300}
                   height={300}
                />

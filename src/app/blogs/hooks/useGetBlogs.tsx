@@ -1,5 +1,5 @@
 "use client ";
-import { BASE_BLOG_URL } from "@/app/api/blogApi/api";
+import { BASE_BLOG_URL } from "@/app/api/api";
 import { Blog } from "@/app/types/blog";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";

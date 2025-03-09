@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { cache } from "react";
-import { BASE_AUTHOR_URL } from "./api";
+import { BASE_AUTHOR_URL } from "../api";
 
    
 

@@ -1,1 +1,0 @@
-export const BASE_AUTHOR_URL = "https://givingairport-us.backendless.app/api/data/Users";

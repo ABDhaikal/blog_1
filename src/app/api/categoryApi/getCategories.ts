@@ -1,5 +1,5 @@
 import { Category } from "@/app/types/category";
-import { BASE_CATEGORY_URL } from "../blogApi/api";
+import { BASE_CATEGORY_URL } from "../api";
 
 
 export const getCategories = async () => {

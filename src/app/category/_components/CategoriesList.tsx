@@ -1,13 +1,27 @@
-import { getBlogs } from "@/app/api/blogApi/getBlogs";
+"use client";
 import { getCategories } from "@/app/api/categoryApi/getCategories";
-import BlogCard from "@/app/components/BlogCard/BlogCard";
-import { Blog } from "@/app/types/blog";
+import { Category } from "@/app/types/category";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { setGlobalCategory } from "@/redux/slices/globalCategory";
 import Link from "next/link";
-import React from "react";
+import { useEffect, useState } from "react";
 
-const CategoriesList = async () => {
-   const datas = await getCategories();
-   const count = datas.length;
+const CategoriesList = () => {
+   const [datas, setData] = useState<Category[]>([]);
+
+   useEffect(() => {
+      const getData = async () => {
+         const data = await getCategories();
+         setData(data);
+      };
+      getData();
+   }, []);
+
+   const globalCategory = useAppSelector((state) => state.globalCategory);
+   const dispatch = useAppDispatch();
+   const handleSetGlobalCategory = (setcategory: string) => {
+      dispatch(setGlobalCategory(setcategory));
+   };
    const rotate = [
       "#FF5733",
       "#33FF57",
@@ -23,13 +37,16 @@ const CategoriesList = async () => {
                return (
                   <div
                      key={`${data} ${idx}`}
-                     className={`section-subtitle  hover:scale-105 text-3xl md:text-5xl  border-2 md:border-3 border-black bg-[${
-                        rotate[idx % 6]
-                     }]  p-2 rounded-3xl`}
+                     onClick={() => handleSetGlobalCategory(data.name)}
+                     className={` hover:scale-105  border-2 md:border-3 border-black 
+                        bg-[${rotate[idx % 6]}]  p-2 rounded-3xl`}
                   >
-                     {/* <Link href={`/Category/${data.category}`}> */}
-                        {/* {data.category} */}
-                     {/* </Link> */}
+                     <Link
+                        href={`/blogs`}
+                        className="section-subtitle text-2xl md:text-4xl "
+                     >
+                        {data.name}
+                     </Link>
                   </div>
                );
             })}
