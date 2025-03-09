@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { format } from "date-fns";
-import { getBlog } from "@/app/api/blogApi/getBlog";
 import Link from "next/link";
 import Image from "next/image";
+import { getBlog } from "@/app/api/blogApi/getBlog";
 interface BlogHeaderProps {
    slug: string;
 }
@@ -10,7 +10,7 @@ const BlogHeader: FC<BlogHeaderProps> = async ({ slug }) => {
    const blog = await getBlog(slug);
    return (
       <div className="container m-auto item-center justify-center ">
-         <div className="aspect-square  w-[50px] md:w-[75px]  aspect-square relative left-[5%] md:left-[10%] ">
+         <div className="aspect-square  w-[50px] md:w-[75px] relative left-[5%] md:left-[10%] ">
             <Link href="/blog ">
                {" "}
                <Image src="/back.svg" alt="logo" fill />
@@ -27,6 +27,15 @@ const BlogHeader: FC<BlogHeaderProps> = async ({ slug }) => {
                <p className="font-bold">Category : </p>
                <p>{blog.category} </p>
             </div>
+         </div>
+         <div className="text-center text-3xl text-white m-4 flex items-center justify-center">
+            Author:{" "}
+            <Link
+               href={`/about/${blog.user.slug}`}
+               className="border-2 bg-blue-300 hover:bg-red-400  text-xl  border-black text-black rounded-4xl flex items-center justify-center p-1 px-2 w-fit mx-2"
+            >
+               {blog.user.name}
+            </Link>
          </div>
       </div>
    );

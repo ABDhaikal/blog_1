@@ -7,5 +7,6 @@ export interface Blog {
    thumbnail: string;
    created: number;
    content: string;
-   views: number|null;
+   views: number ;
+   user: User;
 }

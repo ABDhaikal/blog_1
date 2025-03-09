@@ -6,7 +6,7 @@ const Author = () => {
    return (
       <section className="container m-auto flex flex-col justify-center items-center my-32">
          <h2 className="text-4xl md:text-8xl section-title py-3.5 hover:scale-120">
-            Author
+            teams
          </h2>
          <Image
             src="/blogHero.png"

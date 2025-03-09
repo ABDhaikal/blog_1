@@ -1,44 +1,28 @@
 "use client ";
-import { BASE_DB_URL } from "@/app/api/blogApi/api";
+import { BASE_BLOG_URL } from "@/app/api/blogApi/api";
 import { Blog } from "@/app/types/blog";
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 
-// const useGetBlogs = async () => {
-//    const [data, setData] = useState<Blog[]>([]);
-//    const [isLoading, setisLoading] = useState<boolean>(true);
-
-//    const getData = async () => {
-//       try {
-//          const response = await fetch(`${BASE_DB_URL}`);
-//          const data: Blog[] = await response.json();
-//          setData(data);
-//       } catch (error) {
-
-//       } finally {
-//          setisLoading(false);
-//       }
-//       return data;
-//    };
-
-//    return { data, isLoading, getData };
-// };
-
-// export default useGetBlogs;
 
 interface getBlogQuery {
-   title: string;
+   search: string;
+   page: number;
 }
 
 const useGetBlogs = (queries: getBlogQuery) => {
    return useQuery({
       queryKey: ["blogs", queries], // consider adding a unique identifier or a dependency array to ensure the query is re-run when necessary
       queryFn: async () => {
-         const { title } = queries;
-         const { data } = await axios.get<Blog[]>(
-            `https://givingairport-us.backendless.app/api/data/blogs?where=%60title%60%20LIKE%20'%25${title}%25'`
-         ); // consider adding a specific endpoint for blogs
-         return data;
+         const { search ,page } = queries;
+
+        `https://givingairport-us.backendless.app/api/data/blogs?where=%60title%60%20LIKE%20'%25${search}%25'%20OR%20%60description%60%20LIKE%20'%25${search}%25'`
+         const baseurl = `${BASE_BLOG_URL}?where=%60title%60%20LIKE%20'%25${search}%25'`;
+         const counturl = `${BASE_BLOG_URL}/count`;
+
+         const { data } = await axios.get<Blog[]>(baseurl); // consider adding a specific endpoint for blogs
+         const { data: count } = await axios.get<number>(counturl);
+         return {data,count};
       },
    });
 };

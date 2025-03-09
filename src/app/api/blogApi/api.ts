@@ -1,1 +1,1 @@
-export const BASE_DB_URL = process.env.BASE_DB_URL
+export const BASE_BLOG_URL = "https://givingairport-us.backendless.app/api/data/blogs";

@@ -1,7 +1,6 @@
-
 import React, { Suspense } from "react";
-import BlogTitle from "./components/BlogTitle";
 import BlogList from "./components/BlogList";
+import BlogTitle from "./components/CategoriesTitle";
 
 const page = () => {
    return (

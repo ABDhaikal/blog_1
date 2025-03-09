@@ -1,7 +1,8 @@
-import Loading from '@/app/components/ui/Loading'
-import React, { Suspense } from 'react'
-import BlogHeader from './_component/BlogHeader'
-import BlogBody from './_component/BlogBody'
+import Loading from "@/app/components/ui/Loading"
+import { Suspense } from "react"
+import BlogHeader from "./_component/BlogHeader"
+import BlogBody from "./_component/BlogBody"
+
 
 const BlogDetailpage = async({params}:{params:Promise<{slug:string}>})=> {
     const slug = (await params).slug

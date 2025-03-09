@@ -18,8 +18,8 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
                <Image
                   src={data.thumbnail}
                   alt="data image"
-                  width={100}
-                  height={100}
+                  width={150}
+                  height={150}
                   className=" object-cover"
                />
             </div>
@@ -33,11 +33,13 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
             <p className="text-[11px] md:text-xl line-clamp-4">
                {data.description}
             </p>
+            <p>Read more</p>
          </div>
 
-         <div className="col-span-3 grid grid-cols-subgrid gap-4">
-            <div className="col-start-3 text-end text-[11px] md:text-xl">Read More</div>
-         </div>
+         {/* <div className="col-start-3 text-end text-[11px] md:text-xl"> */}
+            {/* Read More */}
+         {/* </div> */}
+         <div className="col-span-3 grid grid-cols-subgrid gap-4"></div>
       </Link>
    );
 };
