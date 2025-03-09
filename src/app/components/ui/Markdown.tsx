@@ -9,6 +9,7 @@ const Markdown: React.FC<MarkdownProps> = ({ content }) => {
    const renderers: Components = {
       h2: ({ children }) => <h2 className="text-xl font-bold">{children}</h2>,
       p: ({ children }) => <p className="text-md ">{children}</p>,
+      strong: ({ children }) => <strong className="font-medium">{children}</strong>,
    };
    return (
       <ReactMarkdown rehypePlugins={[rehypeRaw]} components={renderers}>

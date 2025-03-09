@@ -10,12 +10,10 @@ const BlogHeader: FC<BlogHeaderProps> = async ({ slug }) => {
    const blog = await getBlog(slug);
    return (
       <div className="container m-auto item-center justify-center ">
-         <div className="aspect-square  w-[50px] md:w-[75px] relative left-[5%] md:left-[10%] ">
-            <Link href="/blog ">
+            <Link href="/blog " className="aspect-square block relative w-[50px] md:w-[75px]  left-[5%] md:left-[10%] hover:hue-rotate-180 ">
                {" "}
-               <Image src="/back.svg" alt="logo" fill />
+               <Image src="/back.svg" alt="logo" priority={false} placeholder = 'empty' fill />
             </Link>
-         </div>
          <h1 className="section-title text-6xl   md:text-8xl  py-2 md:py-6 font-sans ">
             {blog.title}
          </h1>
@@ -25,7 +23,7 @@ const BlogHeader: FC<BlogHeaderProps> = async ({ slug }) => {
             </p>
             <div className="w-fit flex justify-center items-center bg-red-200 border-2 border-black rounded-xl md:rounded-4xl p-1 md:p-2">
                <p className="font-bold">Category : </p>
-               <p>{blog.category} </p>
+               <p>{blog.category.name} </p>
             </div>
          </div>
          <div className="text-center text-3xl text-white m-4 flex items-center justify-center">

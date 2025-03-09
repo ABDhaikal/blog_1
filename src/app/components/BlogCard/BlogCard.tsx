@@ -11,7 +11,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
    return (
       <Link
          href={`/blog/${data.slug}`}
-         className="  w-full mx-auto grid grid-cols-3 max-w-[100%] bg-white items-center p-2   rounded-xl md:rounded-2xl border-4 justify-center  border-black relative hover:scale-110"
+         className="   mx-auto grid grid-cols-3  bg-white items-center p-2   rounded-xl md:rounded-2xl border-4 justify-center  border-black relative hover:scale-110"
       >
          <div className=" shrink flex flex-col items-center justify-center  ">
             <div className="items-center justify-center border-4  border-black rounded-2xl md:rounded-4xl overflow-clip mx-3">
@@ -26,6 +26,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
             <p className="text-[11px] md:text-xl ">
                {format(new Date(data.created), "dd MMMM yyyy")}
             </p>
+            <p>{data.category.name}</p>
          </div>
 
          <div className="col-span-2 h-full text-center  gap-1.5 md:gap-3 my-2 ">
@@ -36,10 +37,6 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
             <p>Read more</p>
          </div>
 
-         {/* <div className="col-start-3 text-end text-[11px] md:text-xl"> */}
-            {/* Read More */}
-         {/* </div> */}
-         <div className="col-span-3 grid grid-cols-subgrid gap-4"></div>
       </Link>
    );
 };

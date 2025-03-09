@@ -9,18 +9,29 @@ import {
    PaginationPrevious,
 } from "@/components/ui/pagination";
 
+
+
 import BlogCard from "@/app/components/BlogCard/BlogCard";
 import React, { useState } from "react";
 import useGetBlogs from "../hooks/useGetBlogs";
 import { useDebounceValue } from "usehooks-ts";
 import Image from "next/image";
+import { Filter } from "lucide-react";
+import FilterButton from "../components/FilterButton";
 
 const page = () => {
    const [search, setSearch] = useState<string>("");
    const [debouncedSearch] = useDebounceValue(search, 500);
 
    const [page, setPage] = useState(1);
-   const { data: blogs } = useGetBlogs({ search: debouncedSearch, page: page });
+   const [display, setDisplay] = useState(10);
+   const [category, setCategory] = useState("all");
+   const { data: blogs } = useGetBlogs({
+      search: debouncedSearch,
+      page: page,
+      category: category,
+      display: display,
+   });
 
    const handlePreviousPage = () => {
       if (page > 1) {
@@ -46,8 +57,9 @@ const page = () => {
                   className="h-full border-2 placeholder:text-center bg-white  px-2 md:px-3 mx-2 rounded-sm border-black  md:rounded-4xl"
                   onChange={(e) => setSearch(e.target.value)}
                />
-               
-               <Image src="/search.svg" alt="search" width={50} height={50} /> 
+
+               <Image src="/search.svg" alt="search" width={50} height={50} />
+               <FilterButton />
             </div>
          </section>
 
@@ -70,15 +82,23 @@ const page = () => {
                <PaginationContent>
                   {/* button Prev */}
                   <PaginationItem>
-                     <PaginationPrevious  className="bg-amber-400 border-2 border-black" onClick={handlePreviousPage} />
+                     <PaginationPrevious
+                        className="bg-amber-400 border-2 border-black"
+                        onClick={handlePreviousPage}
+                     />
                   </PaginationItem>
 
                   <PaginationItem>
-                     <PaginationLink   className="bg-amber-400 border-2 border-black">{page}</PaginationLink>
+                     <PaginationLink className="bg-amber-400 border-2 border-black">
+                        {page}
+                     </PaginationLink>
                   </PaginationItem>
                   {/* Button Next  */}
                   <PaginationItem>
-                     <PaginationNext   className="bg-amber-400 border-2 border-black" onClick={handleNextPage} />
+                     <PaginationNext
+                        className="bg-amber-400 border-2 border-black"
+                        onClick={handleNextPage}
+                     />
                   </PaginationItem>
                </PaginationContent>
             </Pagination>
