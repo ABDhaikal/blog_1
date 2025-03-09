@@ -1,11 +1,9 @@
-import { Blog } from "../../types/blog";
-import { BASE_BLOG_URL } from "../blogApi/api";
+import { Category } from "@/app/types/category";
+import { BASE_CATEGORY_URL } from "../blogApi/api";
 
-interface Category {
-    category:string
-}
+
 export const getCategories = async () => {
-   const response = await fetch(`${BASE_BLOG_URL}?property=%60category%60&groupBy=%60category%60`);
+   const response = await fetch(`${BASE_CATEGORY_URL}`);
    const data: Category[] = await response.json();
    return data;
 };

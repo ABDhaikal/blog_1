@@ -12,17 +12,15 @@ import {
 
 
 import BlogCard from "@/app/components/BlogCard/BlogCard";
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import useGetBlogs from "../hooks/useGetBlogs";
 import { useDebounceValue } from "usehooks-ts";
 import Image from "next/image";
-import { Filter } from "lucide-react";
 import FilterButton from "../components/FilterButton";
 
 const page = () => {
    const [search, setSearch] = useState<string>("");
    const [debouncedSearch] = useDebounceValue(search, 500);
-
    const [page, setPage] = useState(1);
    const [display, setDisplay] = useState(10);
    const [category, setCategory] = useState("all");
@@ -33,6 +31,7 @@ const page = () => {
       display: display,
    });
 
+   // Pagination
    const handlePreviousPage = () => {
       if (page > 1) {
          setPage((prevPage) => prevPage - 1);
@@ -59,7 +58,7 @@ const page = () => {
                />
 
                <Image src="/search.svg" alt="search" width={50} height={50} />
-               <FilterButton />
+               <FilterButton nowCategory={"all"}  changeCategory={setCategory} />
             </div>
          </section>
 

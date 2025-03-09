@@ -27,9 +27,9 @@ const CategoriesList = async () => {
                         rotate[idx % 6]
                      }]  p-2 rounded-3xl`}
                   >
-                     <Link href={`/Category/${data.category}`}>
-                        {data.category}
-                     </Link>
+                     {/* <Link href={`/Category/${data.category}`}> */}
+                        {/* {data.category} */}
+                     {/* </Link> */}
                   </div>
                );
             })}
