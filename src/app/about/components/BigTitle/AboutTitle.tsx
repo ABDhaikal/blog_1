@@ -4,7 +4,7 @@ import React from "react";
 const AboutTitle = () => {
    return (
       <section className="container m-auto">
-         <div className=" w-[90%] m-auto grid grid-cols-1 md:grid-cols-2 bg-[#e13f3d] items-center p-8 rounded-4xl border-8 justify-center  border-black animate-in slide-in-from-left transform duration-800">
+         <div className=" w-[90%] m-auto grid grid-cols-1 md:grid-cols-2 bg-[#e13f3d] items-center p-8 rounded-4xl border-4 justify-center  border-black animate-in slide-in-from-left transform duration-800">
             <div className="text-center flex flex-col gap-7">
                <h1 className="text-4xl md:text-8xl section-title py-3.5 hover:scale-120 animate-in slide-in-from-left transform duration-1000">
                   About US
@@ -16,12 +16,9 @@ const AboutTitle = () => {
                </p>
             </div>
             <div className="flex  items-center justify-center">
-               <Image
-                  src="/icon2.png"
-                  alt="blog image"
-                  width={500}
-                  height={500}
-               />
+               <div className="block aspect-square w-[200px]  relative items-center justify-center ">
+                  <Image src="/icon2.png" alt="blog image" fill priority />
+               </div>
             </div>
          </div>
       </section>

@@ -6,10 +6,10 @@ import { BASE_BLOG_URL } from "../api";
    
 
 
-export const getBlog = cache(async (slug: string) => {
-   // console.log("getBlog");
+export const getBestBlog = cache(async () => {
+   // console.log("getBestBlog");
    const response = await fetch(
-      `${BASE_BLOG_URL}?where=%60slug%60%20%3D%20'${slug}'&loadRelations=category%2Cuser`
+      `${BASE_BLOG_URL}?pageSize=1&sortBy=%60views%60%20desc&loadRelations=category%2Cuser`
    );
    const data: Blog[] = await response.json();
    if(!data.length){

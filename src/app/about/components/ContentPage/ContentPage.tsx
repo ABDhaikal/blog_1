@@ -8,7 +8,7 @@ const ContentPage = () => {
             <h2 className="flex items-start w-full justify-start section-title text-4xl md:text-8xl  animate-in slide-in-from-left transform duration-1200 hover:scale-80">
                History
             </h2>
-            <p className="text-sm md:text-xl  text-gray-800 font-medium bg-[#44b414] border-8 border-black rounded-3xl p-2 text-center flex items-center justify-center  animate-in slide-in-from-left transform duration-800 hover:scale-110">
+            <p className="text-sm md:text-xl  text-gray-800 font-medium bg-[#44b414] border-4 border-black rounded-3xl p-2 text-center flex items-center justify-center  animate-in slide-in-from-left transform duration-800 hover:scale-110">
                Lorem ipsum dolor sit amet consectetur adipisicing elit.
                Asperiores id vitae mollitia quis! Maiores perferendis earum
                ipsum consequuntur corrupti a quod culpa delectus, praesentium
@@ -23,7 +23,7 @@ const ContentPage = () => {
             <h2 className="flex  w-full  section-title text-4xl md:text-8xl animate-in slide-in-from-left transform duration-800 hover:scale-110">
             Vision & Mission
             </h2>
-            <p className="text-sm md:text-xl  bg-[#40b6f0]  text-gray-800  stroke-black font-medium border-8 border-black rounded-3xl p-2 text-center flex items-center justify-center   animate-in slide-in-from-left transform duration-1200 hover:scale-80">
+            <p className="text-sm md:text-xl  bg-[#40b6f0]  text-gray-800  stroke-black font-medium border-4 border-black rounded-3xl p-2 text-center flex items-center justify-center   animate-in slide-in-from-left transform duration-1200 hover:scale-80">
                Lorem ipsum dolor sit amet consectetur adipisicing elit.
                Asperiores id vitae mollitia quis! Maiores perferendis earum
                ipsum consequuntur corrupti a quod culpa delectus, praesentium

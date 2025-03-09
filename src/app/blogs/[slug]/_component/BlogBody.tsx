@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import Image from "next/image";
 import { getBlog } from "@/app/api/blogApi/getBlog";
 import Markdown from "@/app/components/ui/Markdown";
+import HandleViews from "./HandleViews";
 
 interface BlogBodyProps {
    slug: string;
@@ -25,6 +26,7 @@ const BlogBody: FC<BlogBodyProps> = async ({ slug }) => {
             <p>{blog.description}</p>
             <Markdown content={blog.content} />
          </div>
+         <HandleViews pageid={blog.objectId} pageviews={blog.views} categoryid={blog.category.objectId} categoryviews={blog.category.views} />
       </section>
    );
 };

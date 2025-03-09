@@ -1,5 +1,6 @@
 "use client";
 import { getCategories } from "@/app/api/categoryApi/getCategories";
+import BestCategory from "@/app/components/HomePageComponents/BestCategory";
 import { Category } from "@/app/types/category";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { setGlobalCategory } from "@/redux/slices/globalCategory";
@@ -32,6 +33,11 @@ const CategoriesList = () => {
    ];
    return (
       <main className="container m-auto my-6">
+         <BestCategory />
+
+         <h2 className="section-title  text-4xl my-8  md:text-7xl  font-sans">
+            - All Category -{" "}
+         </h2>
          <div className="flex flex-wrap justify-center gap-4">
             {datas.map((data, idx) => {
                return (

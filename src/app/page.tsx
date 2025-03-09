@@ -1,5 +1,5 @@
+import BestCategory from "./components/HomePageComponents/BestCategory";
 import BestPostCard from "./components/HomePageComponents/BestPost";
-import CategoryOvrView from "./components/HomePageComponents/CategoryOvrView";
 import HomePageHero from "./components/HomePageComponents/HomePageHero";
 
 export default function Home() {
@@ -8,7 +8,7 @@ export default function Home() {
          <main className="flex flex-col  justify-center items-center  ">
             <HomePageHero />
             <BestPostCard />
-            <CategoryOvrView />
+            <BestCategory />
          </main>
          <footer></footer>
       </div>

@@ -6,7 +6,6 @@ import { getAuthors } from "@/app/api/authorApi/getAuthors";
 
 const Author = async () => {
    const data = await getAuthors();
-   console.log(data);
    return (
       <section className="container m-auto flex flex-col justify-center items-center my-10">
          <h2 className="text-4xl md:text-8xl section-title py-3.5 hover:scale-120">

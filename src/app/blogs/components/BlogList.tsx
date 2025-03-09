@@ -5,7 +5,7 @@ import React from "react";
 
 const BlogList = async () => {
    const blogs: Blog[] = await getBlogs();
-   console.log(blogs);
+   // console.log(blogs);
    return (
       <main className="container m-auto my-6">
          <div className="flex flex-row items-center justify-center  text-xl md:text-4xl">
