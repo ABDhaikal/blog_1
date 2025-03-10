@@ -45,6 +45,11 @@ const page = () => {
       }
    };
 
+   const setChangeCategory = (category: string) => {
+      setCategory(category);
+      setPage(1);
+   };
+
    return (
       <main className="container m-auto p-4">
          {/* Blog list header */}
@@ -53,7 +58,7 @@ const page = () => {
             <div className="grid grid-flow-col items-center justify-center  text-xl md:text-4xl ">
                <FilterButton
                   nowCategory={category}
-                  changeCategory={setCategory}
+                  changeCategory={setChangeCategory}
                />
                <div className="bg-white rounded-3xl p-2 border-2 text-2xl hidden md:block border-black">
 
