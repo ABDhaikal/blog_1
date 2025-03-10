@@ -16,7 +16,7 @@ const CategoriesList = () => {
          setData(data);
       };
       getData();
-   }, []);
+   }, []); 
 
    const globalCategory = useAppSelector((state) => state.globalCategory);
    const dispatch = useAppDispatch();
@@ -35,8 +35,9 @@ const CategoriesList = () => {
       <main className="container m-auto my-6">
          <BestCategory />
 
-         <h2 className="section-title  text-4xl my-8  md:text-7xl  font-sans">
+         <h2 className="section-title  text-4xl my-8  md:text-6xl  font-sans">
             - All Category -{" "}
+            
          </h2>
          <div className="flex flex-wrap justify-center gap-4">
             {datas.map((data, idx) => {

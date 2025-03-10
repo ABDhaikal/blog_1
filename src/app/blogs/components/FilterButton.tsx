@@ -11,6 +11,8 @@ import {
    DropdownMenuSeparator,
    DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { setGlobalCategory } from "@/redux/slices/globalCategory";
 import Image from "next/image";
 import React, { FC, use, useEffect, useState } from "react";
 
@@ -22,11 +24,19 @@ const FilterButton: FC<FilterButtonProps> = ({
    nowCategory,
    changeCategory,
 }) => {
-   // const data = await getCategories();
+
+
+   const globalCategory = useAppSelector((state) => state.globalCategory);
+   const dispatch = useAppDispatch();
+   const handleSetGlobalCategory = (setcategory: string) => {
+      dispatch(setGlobalCategory(setcategory));
+   };
+
    const [position, setPosition] = useState(nowCategory);
    const [data, setData] = useState<Category[]>([]);
 
    useEffect(() => {
+      handleSetGlobalCategory(position);
       changeCategory(position);
    }, [position]);
 
@@ -37,6 +47,19 @@ const FilterButton: FC<FilterButtonProps> = ({
       };
       getData();
    }, []);
+
+
+
+
+  
+
+
+
+
+
+
+
+
 
    return (
       <DropdownMenu>
