@@ -23,14 +23,7 @@ const CategoriesList = () => {
    const handleSetGlobalCategory = (setcategory: string) => {
       dispatch(setGlobalCategory(setcategory));
    };
-   const rotate = [
-      "#FF5733",
-      "#33FF57",
-      "#5733FF",
-      "#FF33A6",
-      "#33FFF5",
-      "#F5FF33",
-   ];
+
    return (
       <main className="container m-auto my-6">
          <BestCategory />
@@ -46,13 +39,19 @@ const CategoriesList = () => {
                      key={`${data} ${idx}`}
                      onClick={() => handleSetGlobalCategory(data.name)}
                      className={` hover:scale-105  border-2 md:border-3 border-black 
-                        bg-[${rotate[idx % 6]}]  p-2 rounded-3xl`}
+                        bg-[#38a246]  p-2 rounded-3xl`}
                   >
                      <Link
                         href={`/blogs`}
-                        className="section-subtitle text-2xl md:text-4xl "
+                        className="max-w-[250px] flex flex-col justify-center items-center gap-2 "
                      >
+                        <div className="section-subtitle text-2xl md:text-4xl">
                         {data.name}
+                        </div>
+
+                        <div className="text-center bg-amber-50 rounded-2xl p-2 border-2 border-black">
+                        {data.description}
+                        </div>
                      </Link>
                   </div>
                );

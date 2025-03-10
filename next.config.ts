@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
       remotePatterns: [
          {
             protocol: "https",
-            hostname: `givingairport-us.backendless.app`,
+            hostname: `seemlyzinc-us.backendless.app`,
          },
       ],
    },

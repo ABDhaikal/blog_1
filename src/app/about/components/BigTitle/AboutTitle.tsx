@@ -9,7 +9,7 @@ const AboutTitle = () => {
                <h1 className="text-4xl md:text-8xl section-title py-3.5 hover:scale-120 animate-in slide-in-from-left transform duration-1000">
                   About US
                </h1>
-               <p className="text-xl md:text-2xl text-white hover:scale-50 animate-in slide-in-from-left transform duration-1200 ">
+               <p className="text-[12px] md:text-xl text-white hover:scale-50 animate-in slide-in-from-left transform duration-1200 ">
                   Where ideas brew and stories unfold. Explore a world of
                   creativity, insights, and innovation, all served fresh with a
                   blend of passion and a dash of inspiration.

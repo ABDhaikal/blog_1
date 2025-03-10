@@ -7,7 +7,7 @@ const CategoriesTitle = () => {
          <div className=" w-[90%] m-auto grid grid-cols-1 md:grid-cols-2 bg-[#18a24b] items-center p-8
           rounded-4xl border-8 justify-center  border-black animate-in slide-in-from-left transform duration-800">
             <div className="text-center flex flex-col gap-7">
-               <h1 className="text-4xl lg:text-8xl font-bold section-title py-3.5 hover:scale-120 animate-in slide-in-from-left
+               <h1 className="text-4xl lg:text-7xl font-bold section-title py-3.5 hover:scale-120 animate-in slide-in-from-left
                 transform duration-1000">
                   Categories
                </h1>

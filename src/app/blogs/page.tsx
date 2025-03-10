@@ -21,7 +21,7 @@ const page = () => {
    const [search, setSearch] = useState<string>("");
    const [debouncedSearch] = useDebounceValue(search, 500);
    const [page, setPage] = useState(1);
-   const [display, setDisplay] = useState(10);
+   const [display, setDisplay] = useState(3);
    const globalCategory = useAppSelector((state) => state.globalCategory);
    const [category, setCategory] = useState(globalCategory.value);
    const { data: blogs } = useGetBlogs({
@@ -55,6 +55,10 @@ const page = () => {
                   nowCategory={category}
                   changeCategory={setCategory}
                />
+               <div className="bg-white rounded-3xl p-2 border-2 text-2xl hidden md:block border-black">
+
+               {category}
+               </div>
 
                <input
                   type="text"

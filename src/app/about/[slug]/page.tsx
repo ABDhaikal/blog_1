@@ -25,10 +25,10 @@ const AuthorDetailpage = async ({
                />
             </div>
             <div></div>
-            <p className="text-2xl md:text-4xl section-subtitle hover:scale-120">
+            <p className="text-3xl md:text-4xl section-subtitle hover:scale-120">
                {author.name}
             </p>
-            <p className="text-xl md:text-2xl  section-subtitle">
+            <p className="text-2xl md:text-2xl  section-subtitle">
                {author.title}
             </p>
             <div className="bg-white rounded-4xl border-4 justify-center  border-black p-4 md:p-8 my-4 max-w-[80%]">

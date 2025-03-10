@@ -5,5 +5,6 @@ export interface Category {
     updated: number | null; // Can be null or a timestamp
     objectId: string; // Unique identifier
     views: number; // View count
+    description: string;
   }
   

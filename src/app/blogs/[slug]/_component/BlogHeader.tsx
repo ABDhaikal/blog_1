@@ -14,7 +14,7 @@ const BlogHeader: FC<BlogHeaderProps> = async ({ slug }) => {
                {" "}
                <Image src="/back.svg" alt="logo" priority placeholder = 'empty' fill />
             </Link>
-         <h1 className="section-title text-6xl   md:text-8xl  py-2 md:py-6 font-sans ">
+         <h1 className="section-title text-4xl   md:text-6xl  py-2 md:py-6 font-sans max-w-[80%] m-auto ">
             {blog.title}
          </h1>
          <div className="  flex  flex-wrap justify-center items-center gap-2">
