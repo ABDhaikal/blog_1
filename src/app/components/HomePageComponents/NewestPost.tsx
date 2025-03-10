@@ -1,6 +1,5 @@
-import { getBestBlog } from "@/app/api/blogApi/getBestBlog";
-import BlogCard from "../BlogCard/BlogCard";
 import { getNewestBlog } from "@/app/api/blogApi/getNewestBlog";
+import BlogCard from "../BlogCard/BlogCard";
 
 const NewestPost = async () => {
    const data = await getNewestBlog();

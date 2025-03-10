@@ -20,7 +20,7 @@ const BlogCard: React.FC<BlogCardProps> = ({ data }) => {
                   alt="data image"
                   width={150}
                   height={150}
-                  priority
+
                   className=" object-cover"
                />
             </div>

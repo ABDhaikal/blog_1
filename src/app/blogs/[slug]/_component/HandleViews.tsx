@@ -45,7 +45,7 @@ const HandleViews: React.FC<HandleViewsProps> = ({
          console.log(error);
       }
       finally{
-         console.log("category views updated");
+         // console.log("category views updated");
       }
    };
 

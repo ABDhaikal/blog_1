@@ -15,12 +15,12 @@ const AuthorDetailpage = async ({
    return (
       <main>
          <section className="container m-auto flex flex-col justify-center items-center ">
-            <div className="relative w-[300px] max-w-[40vw] overflow-clip aspect-square rounded-full border-8 border-black bg-amber-50  animate-spin duration-10000 hover:duration-300 ">
+            <div className="relative w-[300px]  overflow-clip aspect-square rounded-full border-8 border-black bg-amber-50  animate-spin duration-10000 hover:duration-300 ">
                <Image
                   src={author.image}
                   alt="blog image"
-                  fill
-                  sizes="40vw"
+                  width={300}
+                  height={300}
                   className="object-cover"
                />
             </div>
